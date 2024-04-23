@@ -33,7 +33,11 @@ class RequestTimeLoggerMiddleware
         $loggerChannel = Config::get('gocpa-laravel-request-time-logger.log_channel');
         $slowTimeSeconds = (int) Config::get('gocpa-laravel-request-time-logger.script_execution.slowTimeSeconds');
 
-        $executionTime = microtime(true) - LARAVEL_START;
+        if (!defined('LARAVEL_START')) {
+            return;
+        }
+
+        $executionTime = microtime(true) - \LARAVEL_START;
         if ($executionTime >= $slowTimeSeconds) {
             $logMessage = sprintf('Slow request time: %f s', $executionTime);
             $this->logger
