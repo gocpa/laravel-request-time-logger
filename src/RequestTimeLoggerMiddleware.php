@@ -15,9 +15,7 @@ use Symfony\Component\HttpFoundation\Response;
  */
 class RequestTimeLoggerMiddleware
 {
-    public function __construct(private LogManager $logger)
-    {
-    }
+    public function __construct(private LogManager $logger) {}
 
     public function handle(Request $request, Closure $next): Response
     {

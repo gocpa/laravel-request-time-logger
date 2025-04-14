@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace GoCPA\LaravelRequestTimeLogger;
 
-use GoCPA\LaravelRequestTimeLogger\Console\AboutCommandIntegration;
 use Illuminate\Contracts\Http\Kernel;
 use Illuminate\Foundation\Console\AboutCommand;
 use Illuminate\Support\ServiceProvider as BaseServiceProvider;
@@ -38,6 +37,6 @@ class ServiceProvider extends BaseServiceProvider
             return;
         }
 
-        AboutCommand::add('gocpa/laravel-request-time-logger', fn () => ['Version' => '1.0.0']);
+        AboutCommand::add('gocpa/laravel-request-time-logger', fn () => ['Version' => '1.0.2']);
     }
 }
